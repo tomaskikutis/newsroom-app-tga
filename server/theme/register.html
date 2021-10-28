@@ -1,0 +1,135 @@
+{% extends "layout_wire.html" %}
+
+{% block contentMain %}
+
+<div class="container-fluid overflow-auto py-0 py-md-5">
+    <div class="row">
+        <div class="col-12 col-xxl-8 mx-auto px-0 px-md-3">
+            <div class="card border-0 bg-white box-shadow--z1">
+                <div class="card-header pt-4 border-0 bg-white">
+                    <h5 class="mb-0">{{ gettext("Registration Form") }}</h5>
+                </div>
+                <div class="card-body pt-1 a--underline">
+                    <form class="form" method="post">
+
+                        <p>Registration to the Beta V1 of Newshub@360info.org, is currently available to media outlets in the Asia Pacific.  Approved users will be provided with a login to access content during the trial period. The trial period will run from November 2021 to early 2022.  There is no cost for registration. At the end of the trial period we will seek your feedback via survey/s.</p>
+
+                        <p>Please complete your details below and review and confirm the terms of use and privacy policy.  If confirmed to be a trial partner, you will receive login details from us.  You will also be added to our subscription database to ensure you are notified of the launch.</p>
+
+                        {{ form.csrf_token }}
+
+                        {% include "form_alerts.html" %}
+
+                        <div class="form-group">
+                            <label for="name">{{ form.name.label.text }}</label>
+                            {{ form.name(class="form-control", id="name", required="true") }}
+                        </div>
+                        <div class="form-group">
+                            <label for="company">{{ form.company.label.text }}</label>
+                            {{ form.company(class="form-control", id="company", required="true") }}
+                        </div>
+                        <div class="form-group">
+                            <label for="position">{{ form.position.label.text }}</label>
+                            {{ form.position(class="form-control", id="position", required="true") }}
+                        </div>
+                        <div class="form-group">
+                            <label for="email">{{ form.email.label.text }}</label>
+                            {{ form.email(class="form-control", id="email", required="true") }}
+                        </div>
+                        <div class="form-group">
+                            <label for="country">{{ form.country.label.text }}</label>
+                            {{ form.country(class="form-control", id="country", required="true") }}
+                        </div>
+                        <div class="form-group">
+                            <label for="referred_by">{{ form.referred_by.label.text }}</label>
+                            {{ form.referred_by(class="form-control", id="referred_by", required="true") }}
+                        </div>
+
+                        <h3>Terms and conditions</h3>
+                        <p>Under Creative Commons, you are free to:</p>
+                        <p><strong>Share</strong> — copy and redistribute the Features and Articles from 360™ in any medium or format;</p>
+                        <p><strong>Adapt</strong> — remix, transform, and build upon the content for any purpose, even commercially.</p>
+                        <p><strong>You must:</strong> Attribute — Credit the author/s name, 360™, and the title of the work and provide a link to the <a class="text-danger" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC licence Attribution 4.0 International.</a></p>
+                        <p>Note: These links and credits are included with the content you download. Indicate if you made any changes to the work, as per the terms of use.</p>
+
+                        <h3>Privacy collection statement</h3>
+                        <p>Monash University is responsible for the handling of all personal data that is collected, used, stored and otherwise processed for the delivery of 360™, including:</p>
+                        <ul>
+                            <li>To provide you with a login to access Newshub</li>
+                            <li>To email you regarding the terms, conditions and/or renewal of your registration.</li>
+                            <li>To email you updates regarding the service and or special content updates (you will have the option to unsubscribe from these types of updates).</li>
+                            <li>To seek feedback from you, (i.e. through survey/s)</li>
+                            <li>To identify you, your organisation, region as having downloaded (or not) content for re-use,</li>
+                            <li>To understand how you have used the Newshub services in order to analyse usage data in order to improve the service when.</li>
+                        </ul>
+
+                        <p>A login name and password are required to access Newshub. This is to ensure that the information is displayed only to the intended person. You should ensure that your password is kept securely and cannot be discovered by anyone else.</p>
+
+                        <p>360™ values the privacy of every individual’s personal information and is committed to the protection of that information from unauthorised use and disclosure except where permitted by law. For information about the handling of your personal information please see the Monash University <a class="text-danger" href="https://www.monash.edu/__data/assets/pdf_file/0003/1595271/Visitors-and-Enquirers-Data-Protection-and-Privacy-Collection-Statement.pdf" target="_blank">Visitors and Enquirers Collection Statement</a>. For more information about our Data Protection and Privacy please see the Monash University our <a class="text-danger" href="https://www.monash.edu/__data/assets/pdf_file/0003/790086/Privacy.pdf" target="_blank">Data Protection and Privacy Procedure</a>. Where Newshub contains links to other sites. 360™  is not responsible for the privacy practices or the content of such websites.</p>
+                        <p>f you have any questions about how 360™ is collecting and handling your personal information, please contact our Data Protection and Privacy Office at <a class="text-primary" href="mailto:dataprotectionofficer@monash.edu" target="_blank">dataprotectionofficer@monash.edu</a></p>
+
+                        <div class="form-group mb-4 p-0">
+                            <div class="custom-control custom-checkbox">
+                                {{ form.consent_login(class="custom-control-input", id="consent_login", required="true") }}
+                                <label class="custom-control-label" for="consent_login"><strong>{{ form.consent_login.label.text }}</strong></label>
+                                <span><strong>the personal information that I provide in this form being used by 360 for the purposes of login as per the privacy collection statement.* </strong></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4 p-0">
+                            <div class="custom-control custom-checkbox">
+                                {{ form.consent_alerts(class="custom-control-input", id="consent_alerts", required="true") }}
+                                <label class="custom-control-label" for="consent_alerts"><strong>{{ form.consent_alerts.label.text }}</strong></label>
+                                <span><strong>the personal information that I provide in this form being used by 360 to send me regular alerts and/or newsletters</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4 p-0">
+                            <div class="custom-control custom-checkbox">
+                                {{ form.consent_reporting(class="custom-control-input", id="consent_reporting", required="true") }}
+                                <label class="custom-control-label" for="consent_reporting"><strong>{{ form.consent_reporting.label.text }}</strong></label>
+                                <span><strong>the personal information that I provide in this form being disclosed to third parties for the purpose of 360 analytics and reporting for 360 purposes only.</strong></span>
+                            </div>
+                        </div>
+
+                        <p>If you do not provide your consent for the above purposes, 360™ will not be able to process your information or enable your participation in Newshub.</p>
+
+                        <p>360™ is a wholly owned entity of Monash University, ABN 12 377 614 012. If you have any questions about how Monash University is collecting and handling your personal information, please contact our Data Protection and Privacy Office at <a class="text-primary" href="mailto:dataprotectionofficer@monash.edu" target="_blank">dataprotectionofficer@monash.edu</a>.</p>
+
+                        <div class="form-group mb-4 p-0">
+                            <div class="custom-control custom-checkbox">
+                                {{ form.consent_terms(class="custom-control-input", id="consent_terms", required="true") }}
+                                <label class="custom-control-label" for="consent_terms"><strong>{{ form.consent_terms.label.text }}</strong></label>
+                                <span><strong>abide by these terms and conditions as per the </strong></span>
+                                <a href="{{ url_for('tga_public.about') }}" target="_blank"><strong>{{ gettext("terms of use") }}</strong></a>
+                            </div>
+                        </div>
+
+                        <div class="g-recaptcha mb-4" data-sitekey={{ sitekey }} data-callback="enableSubmitButton"></div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="signup-submit" disabled>
+                            {{ gettext("Register") }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "login_messages.html" %}
+
+    {% include "footer_text.html" %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script>
+    function enableSubmitButton(){
+        document.getElementById("signup-submit").disabled = false;
+    }
+</script>
+
+{% endblock %}

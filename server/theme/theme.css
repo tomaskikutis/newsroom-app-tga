@@ -1,0 +1,12 @@
+
+.a--underline a {
+    text-decoration: underline !important;
+}
+
+.content__about p, .content__terms p {
+    line-height: 2;
+}
+
+.content__about li, .content__terms li {
+    line-height: 2;
+}
