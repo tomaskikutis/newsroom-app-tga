@@ -1,5 +1,5 @@
 import pathlib
-from newsroom.web.default_settings import BLUEPRINTS, env, strtobool
+from newsroom.web.default_settings import BLUEPRINTS, env, strtobool, CLIENT_CONFIG
 
 SERVER_PATH = pathlib.Path(__file__).resolve().parent
 CLIENT_PATH = SERVER_PATH.parent.joinpath("client")
@@ -17,3 +17,13 @@ BLUEPRINTS.extend([
 
 LANGUAGES = ['en']
 DEFAULT_LANGUAGE = 'en'
+NEWS_API_ENABLED = True
+WATERMARK_IMAGE = None
+
+# Client configuration
+CLIENT_CONFIG.update({
+    'display_abstract': True,
+    'display_credits': True,
+})
+
+DATE_FORMAT_HEADER = 'EEEE, MMMM d, yyyy'
