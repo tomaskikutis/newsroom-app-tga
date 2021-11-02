@@ -1,8 +1,7 @@
 {% extends "email_layout.html" %}
 
 {% block content %}
-<p>Sinulle on luotu käyttäjätunnus {{app_name}}-palveluun.</p>
-<p>Ole hyvä klikkaa linkkiä aktivoidaksesi tunnuksesi: <a href="{{url}}">{{url}}</a></p>
-<p>Linkki vanhenee {{(expires/24)|int}} päivän kuluttua.</p>
-<p>Jos luulet, että {{app_name}}-tili on luotu erheellisesti, jätä tämä viesti huomiotta.</p>
+<p>An {{app_name}} account has been created for you. In order to access your account, please visit <a href="{{url}}">{{url}}</a> and complete your registration.</p>
+<p>This link will expire after {{expires}} hours.</p>
+<p>If you believe the {{app_name}} account was created in error, please ignore this email.</p>
 {% endblock %}

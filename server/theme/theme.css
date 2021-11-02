@@ -1,4 +1,3 @@
-
 .a--underline a {
     text-decoration: underline !important;
 }
@@ -9,4 +8,59 @@
 
 .content__about li, .content__terms li {
     line-height: 2;
+}
+
+/* TGA theme css */
+
+.navbar__logo {
+    max-width: 270px;
+    padding: 0 0 0 0.5rem;
+    justify-content: flex-start;
+}
+.navbar__logo img {
+    max-width: 70px;
+}
+.navbar__logo a {
+    display: flex;
+    align-items: center;
+}
+.navbar__logo a,
+.navbar__logo a:hover {
+    text-decoration: none;
+    color: #969696;
+}
+.navbar__logo a span {
+    padding-top: 2px;
+    font-size: 14px;
+}
+.wire-column__nav__tab a {
+    padding: .5rem .6rem;
+}
+
+@media only screen and (min-width: 576px) {
+    .navbar__logo {
+        padding: 0 0.5rem;
+    }
+    .navbar__logo a span {
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .navbar-brand {
+        margin-top: 3.5px;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .wire-column__nav__tab a {
+        padding: .5rem .2rem;
+        font-size: .8125rem;
+        line-height: 1.8;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .wire-column__nav__tab a {
+        padding: .5rem .7rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 }

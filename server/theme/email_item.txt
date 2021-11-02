@@ -2,7 +2,8 @@
 
 {% if item.body_txt %}{{ item.body_txt }}{% elif item.body_html %}{{ item.body_html | plain_text }}{% endif %}
 
-{% if item.headline %}Otsikko: {{ item.headline }}{% endif %}
-{% if item.service %}Kategoria: {{ item.service.0.name }}{% endif %}
-Julkaistu: {{ item.versioncreated | datetime_long }}
-Linkki: {{ url_for_wire(item, True, section) }}
+{% if item.slugline %}Slugline: {{ item.slugline }}{% endif %}
+{% if item.headline %}Headline: {{ item.headline }}{% endif %}
+{% if item.service %}Category: {{ item.service.0.name }}{% endif %}
+Published: {{ item.versioncreated | datetime_long }}
+Link: {{ url_for_wire(item, True, section) }}

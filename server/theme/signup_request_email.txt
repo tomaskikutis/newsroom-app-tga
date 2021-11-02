@@ -7,8 +7,7 @@ Company:      {{user.company}}
 Position:     {{user.position}}
 Email:        {{user.email}}
 Country:      {{user.country}}
-Referred By:
-{{user.referred_by}}
+Referred By:  {{user.referred_by}}
 
 
 Please go to {{url}} to create a new user.

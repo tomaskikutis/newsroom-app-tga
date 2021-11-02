@@ -2,11 +2,9 @@
 {% block content %}{% endblock %}
 
 {% block footer %}
-Terveisin,
-STT
-Tämä on automaattisesti luotu viesti. Ethän vastaa tähän sähköpostiosoitteeseen. Löydät yhteystietomme täältä: https://stt.fi/yhteystiedot/
+Regards,
+The {{app_name}} Team
 
-{{app_name}} on Suomen Tietotoimiston ylläpitämä palvelu. Palvelun on kehittänyt Sourcefabric.
-https://stt.fi/
+{{app_name}} is developed by Sourcefabric and the {{app_name}} community.
 http://sourcefabric.org
 {% endblock %}

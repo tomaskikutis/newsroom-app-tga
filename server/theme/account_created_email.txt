@@ -1,8 +1,9 @@
 {% extends "email_layout.txt" %}
 {% block content %}
-Sinulle on luotu käyttäjätunnus STT:n {{app_name}}-palveluun. Ole hyvä ja klikkaa linkkiä aktivoidaksesi tunnuksesi: {{url}}
+An {{app_name}} account has been created for you.
+In order to access your account, please use the link {{url}} to reset your password.
 
-Linkki vanhenee {{(expires/24)|int}} päivän kuluttua.
+This link will expire after {{expires}} hours.
 
-Jos luulet, että {{app_name}}-tunnus on luotu erheellisesti, jätä tämä viesti huomiotta.
+If you believe the {{app_name}} account was created in error, please ignore this email.
 {% endblock %}
