@@ -7,9 +7,12 @@
 <div class="container-fluid pt-5 overflow-auto">
 {% endif %}
     <div class="row">
-        <div class="col-12 col-md-8 col-lg-6 col-xxl-4 mx-auto">
+        <div class="col-12 col-md-6 col-xxl-5 mx-auto">
             <div class="card border-0 bg-white box-shadow--z1">
                 <div class="card-header pt-4 border-0 bg-white">
+                    <div class="text-center mb-4">
+                        {% include 'login_logo.html' %}
+                    </div>
                     <h5 class="mb-0">{{ gettext("Login") }}</h5>
                 </div>
                 <div class="card-body pt-1">
@@ -37,7 +40,7 @@
                     </form>
                 </div>
 
-                <div class="card-footer bg-white border-0 text-muted small">
+                <div class="card-footer bg-white border-0 text-muted small a--underline">
                     <p>{{ gettext('Forgot your password?') }} <a href="{{ url_for('auth.token', token_type='reset_password') }}">{{ gettext('Click here to reset.') }}</a>
                         {% if config.SHOW_USER_REGISTER %}{{ gettext("Or you can") }} <a href="{{ url_for('register.eoi') }}">{{ gettext('click here to register.') }}</a>{% endif %}
                     </p>
@@ -71,21 +74,30 @@
 
 {% if config.HIDE_LOGIN %}
 <div class="container-fluid pt-5 overflow-auto d-flex flex-column" id="registration-block">
-    <div class="row mx-auto">
-        <p class="text-center w-100">
-            This is a registration site for the BETA V1 version of the 360™ Newshub service.  Click below to register your interest in access 360™ content.
-        </p>
-    </div>
-    <div class="row mx-auto w-100">
-        <a href="{{ url_for('register.eoi') }}" role="button" class="btn btn-primary w-100 mx-5 text-white">
-            Click here to register your interest
-        </a>
-    </div>
-
-    <div class="row mx-auto">
-        <p class="text-center w-100">
-            Already have an account, <a href="#" onclick="showLoginForm()">sign in now</a>
-        </p>
+    <div class="row">
+        <div class="col-12 col-md-6 col-xxl-5 mx-auto">
+            <div class="card text-center border-0 bg-white box-shadow--z1">
+                <div class="card-header pt-4 border-0 bg-white">
+                    <div class="mb-4">
+                        {% include 'login_logo.html' %}
+                    </div>                    
+                </div>
+                <div class="card-body pt-1">
+                    <p>
+                        This is a registration site for the BETA V1 version of the 360™ Newshub service. Click below to register your interest in access 360™ content.
+                    </p>
+                
+                    <a href="{{ url_for('register.eoi') }}" role="button" class="btn btn-primary mx-auto text-white mt-3">
+                        Click here to register your interest
+                    </a>                    
+                </div>
+                <div class="card-footer bg-white border-0 text-muted a--underline">
+                    <p class="text-center">
+                        Already have an account, <a href="#" onclick="showLoginForm()">sign in now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="mt-auto">

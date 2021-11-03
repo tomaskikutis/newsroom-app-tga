@@ -1,5 +1,5 @@
 # BUILD
-FROM node:lts
+FROM node:14
 
 # install client
 WORKDIR /opt/client
