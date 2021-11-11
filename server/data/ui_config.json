@@ -1,0 +1,29 @@
+[
+    {
+        "_id": "wire",
+        "init_version": 1,
+        "preview": {
+            "metadata_fields": [
+                "source",
+                ["charcount", "/", "wordcount"],
+                "previous_versions"
+            ]
+        },
+        "details": {
+            "metadata_fields": [
+                "source",
+                ["charcount", "/", "wordcount"],
+                "previous_versions"
+            ]
+        },
+        "list": {
+            "metadata_fields": [
+                "source",
+                "//",
+                "wordcount",
+                "//",
+                "versioncreated"
+            ]
+        }
+    }
+]
