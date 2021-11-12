@@ -1,0 +1,74 @@
+[
+    {
+        "_id": "wire",
+        "init_version": 2,
+        "preview": {
+            "metadata_fields": [
+                "embargo",
+                "source",
+                "wordcount",
+                "previous_versions"
+            ]
+        },
+        "details": {
+            "metadata_fields": [
+                "embargo",
+                "source",
+                "wordcount",
+                "previous_versions"
+            ]
+        },
+        "list": {
+            "metadata_fields": [
+                "embargo",
+                "//",
+                "source",
+                "//",
+                "wordcount",
+                "//",
+                "versioncreated"
+            ]
+        }
+    },
+    {
+        "_id": "home",
+        "init_version": 2,
+        "details": {
+            "metadata_fields": [
+                "embargo",
+                "source",
+                "wordcount",
+                "previous_versions"
+            ],
+            "wordcount": {
+                "displayed": true
+            },
+            "charcount": {
+                "displayed": false
+            },
+            "slugline": {
+                "displayed": true
+            }
+        },
+        "list": {
+            "metadata_fields": [
+                "embargo",
+                "//",
+                "source",
+                "//",
+                "wordcount",
+                "//",
+                "versioncreated"
+            ],
+            "wordcount": {
+                "displayed": true
+            },
+            "charcount": {
+                "displayed": false
+            },
+            "slugline": {
+                "displayed": true
+            }
+        }
+    }
+]
