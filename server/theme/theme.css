@@ -10,6 +10,25 @@
     line-height: 2;
 }
 
+.home-info-text {
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+.home-registration-text {
+    font-family: "Merriweather", serif;
+    font-size: 0.8125rem; // 13px
+}
+
+.public-page h4, .public-page h5 {
+    color: #537391;
+    font-weight: 600;
+}
+
+.public-page h5 {
+    color: #537391;
+    font-weight: 500;
+}
+
 /* TGA theme css */
 
 .navbar__logo {
