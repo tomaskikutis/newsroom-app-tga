@@ -10,7 +10,7 @@
         <div class="col-12 col-md-6 col-xxl-5 mx-auto">
             <div class="card border-0 bg-white box-shadow--z1">
                 <div class="card-header pt-4 border-0 bg-white">
-                    <div class="text-center mb-4">
+                    <div class="text-center">
                         {% include 'login_logo.html' %}
                     </div>
                     <h5 class="mb-0">{{ gettext("Login") }}</h5>
@@ -78,9 +78,9 @@
         <div class="col-12 col-md-6 col-xxl-5 mx-auto">
             <div class="card text-center border-0 bg-white box-shadow--z1">
                 <div class="card-header pt-4 border-0 bg-white">
-                    <div class="mb-4">
+                    <div>
                         {% include 'login_logo.html' %}
-                    </div>                    
+                    </div>
                 </div>
                 <div class="card-body pt-1">
                     <p class="home-info-text font-weight-bold">
@@ -89,10 +89,10 @@
                     <p class="pt-5 home-registration-text">
                         This is a registration site for the BETA version of 360Info Newshub.  Click below to register your interest for 360Info content.
                     </p>
-                
+
                     <a href="{{ url_for('register.eoi') }}" role="button" class="btn btn-primary mx-auto text-white mt-3">
                         Click here to register your interest
-                    </a>                    
+                    </a>
                 </div>
                 <div class="card-footer bg-white border-0 text-muted a--underline">
                     <p class="text-center">

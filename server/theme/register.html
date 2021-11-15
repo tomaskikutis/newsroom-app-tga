@@ -101,7 +101,7 @@
                                 {{ form.consent_terms(class="custom-control-input", id="consent_terms", required="true") }}
                                 <label class="custom-control-label" for="consent_terms"><strong>{{ form.consent_terms.label.text }}</strong></label>
                                 <span><strong>abide by these terms and conditions as per the </strong></span>
-                                <a href="url_for('public.page', template='terms')" target="_blank"><span class="font-weight-bold">{{ gettext("terms of use") }}</span></a>
+                                <a href="{{ url_for('public.page', template='terms') }}" target="_blank"><span class="font-weight-bold">{{ gettext("terms of use") }}</span></a>
                             </div>
                         </div>
 
