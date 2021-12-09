@@ -1,2 +1,1 @@
-flask>=1.1.4,<2.0
-git+https://github.com/superdesk/newsroom-core.git@edc6a78#egg=Newsroom-Core
+git+https://github.com/superdesk/newsroom-core.git@release/2.0#egg=Newsroom-Core
