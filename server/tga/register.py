@@ -12,7 +12,7 @@ blueprint = Blueprint('register', __name__)
 
 class RegisterEOIForm(FlaskForm):
     name = StringField(lazy_gettext('Name'), validators=[DataRequired(), Length(1, 128)])
-    organisation = StringField(lazy_gettext('Organisation'), validators=[DataRequired()])
+    organisation = StringField(lazy_gettext('Organisation / Institute'), validators=[DataRequired()])
     position = StringField(lazy_gettext('Position held / Title'))
     email = StringField(lazy_gettext('Email'), validators=[DataRequired(), Length(1, 128), Email()])
     country = StringField(lazy_gettext('Country'), validators=[DataRequired()])
