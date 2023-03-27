@@ -40,11 +40,11 @@
             {% else %}
             <div class="form-inline my-lg-0 ml-auto pr-2 pr-sm-3">
                 <a class="nav-link d-none d-md-block" href="{{ url_for('register.eoi') }}">{{ gettext('Register') }}</a>
-                <a class="nav-link" href="{{ url_for('public.page', template='about') }}">{{ gettext('About Us') }}</a>
-                <a class="nav-link" href="{{ url_for('public.page', template='charter') }}">{{ gettext('Charter') }}</a>
-                <a class="nav-link d-none d-md-block" href="{{ url_for('public.page', template='editorial-policies') }}">{{ gettext('Editorial Policies') }}</a>
-                <a class="nav-link d-none d-md-block" href="{{ url_for('public.page', template='terms') }}">{{ gettext('Terms of Use') }}</a>
-                <a class="nav-link" href="{{ url_for('public.page', template='contact_us') }}">{{ gettext('Contact Us') }}</a>
+                <a class="nav-link" href="https://360info.org/about-us/" target="_blank">{{ gettext('About Us') }}</a>
+                <a class="nav-link" href="https://360info.org/about-us/our-charter/" target="_blank">{{ gettext('Charter') }}</a>
+                <a class="nav-link d-none d-md-block" href="https://360info.org/about-us/editorial-policies/" target="_blank">{{ gettext('Editorial Policies') }}</a>
+                <a class="nav-link d-none d-md-block" href="https://360info.org/about-us/terms-conditions/" target="_blank">{{ gettext('Terms of Use') }}</a>
+                <a class="nav-link" href="https://360info.org/about-us/contact-us/" target="_blank">{{ gettext('Contact Us') }}</a>
             </div>
             {% endif %}
         </nav>

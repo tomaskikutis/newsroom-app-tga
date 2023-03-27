@@ -12,9 +12,9 @@
                 <div class="card-body pt-1 a--underline">
                     <form class="form" method="post">
 
-                        <p>Registration to the Beta V1 of 360info, is currently available to media outlets. Approved users will be provided with a login to access content. There is no cost for registration.</p>
+                        <p>Approved users will be provided with a login to access content. There is no cost for registration.</p>
 
-                        <p>Please complete your details below and review and confirm the <a href="{{ url_for('public.page', template='terms') }}" class="text-primary" target="_blank">Terms of Use</a>. If confirmed, you will receive login details from us. You will also be added to our subscription database to ensure you are notified of upcoming and released content packages.</p>
+                        <p>Please complete your details below and review and confirm the <a href="https://360info.org/about-us/terms-conditions/" class="text-primary" target="_blank">Terms of Use</a>. If confirmed, you will receive login details from us. You will also be added to our subscription database to ensure you are notified of upcoming and released content packages.</p>
 
                         {{ form.csrf_token }}
 
@@ -108,7 +108,7 @@
                                 <label class="custom-control-label" for="consent_terms">
                                     <span class="font-weight-bold font-size-1">{{ form.consent_terms.label.text }}</span>
                                 </label>
-                                <span class="font-weight-bold">abide by these terms and conditions as per the <a class="font-weight-bold font-size-1" href="{{ url_for('public.page', template='terms') }}" target="_blank">{{ gettext("terms of use") }}</a></span>
+                                <span class="font-weight-bold">abide by these terms and conditions as per the <a class="font-weight-bold font-size-1" href="https://360info.org/about-us/terms-conditions/" target="_blank">{{ gettext("terms of use") }}</a></span>
                             </div>
                         </div>
 
