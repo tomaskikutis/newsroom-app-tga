@@ -49,7 +49,7 @@
     color: #969696;
 }
 .navbar__logo a span {
-    padding-top: 2px;
+    padding-block-start: 2px;
     font-size: 14px;
 }
 .wire-column__nav__tab a {

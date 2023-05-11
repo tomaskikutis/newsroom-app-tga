@@ -1,30 +1,57 @@
 import pathlib
-from newsroom.web.default_settings import BLUEPRINTS, env, strtobool, CLIENT_CONFIG
+from newsroom.web.default_settings import BLUEPRINTS as DEFAULT_BLUEPRINTS, env, strtobool, CLIENT_CONFIG, \
+    CORE_APPS as DEFAULT_CORE_APPS
 
 SERVER_PATH = pathlib.Path(__file__).resolve().parent
 CLIENT_PATH = SERVER_PATH.parent.joinpath("client")
 
-SITE_NAME = '360info.org'
-COPYRIGHT_HOLDER = '360info'
+SITE_NAME = "360info.org"
+COPYRIGHT_HOLDER = "360info"
 SHOW_USER_REGISTER = True
-SIGNUP_EMAIL_RECIPIENTS = 'info@360info.org'
-HIDE_LOGIN = strtobool(env('HIDE_LOGIN', 'True'))
-CONTACT_ADDRESS = '/contact_us'
-TERMS_AND_CONDITIONS = '/page/terms'
+SIGNUP_EMAIL_RECIPIENTS = "info@360info.org"
+HIDE_LOGIN = strtobool(env("HIDE_LOGIN", "True"))
+CONTACT_ADDRESS = "/contact_us"
+TERMS_AND_CONDITIONS = "/page/terms"
 
-BLUEPRINTS.extend([
-    'tga.register',
-])
+CORE_APPS = [
+    app
+    for app in DEFAULT_CORE_APPS
+    if app not in [
+        "newsroom.monitoring",
+        "newsroom.auth.oauth",
+        "newsroom.oauth_clients",
 
-LANGUAGES = ['en']
-DEFAULT_LANGUAGE = 'en'
+    ]
+]
+
+BLUEPRINTS = ["tga.register"] + [
+    blueprint
+    for blueprint in DEFAULT_BLUEPRINTS
+    if blueprint not in [
+        "newsroom.design",
+        "newsroom.monitoring",
+        "newsroom.oauth_clients",
+        "newsroom.auth_server.oauth2",
+    ]
+]
+
+LANGUAGES = ["en"]
+DEFAULT_LANGUAGE = "en"
 NEWS_API_ENABLED = True
 WATERMARK_IMAGE = None
 
 # Client configuration
 CLIENT_CONFIG.update({
-    'display_abstract': True,
-    'display_credits': True,
+    "display_abstract": True,
+    "display_credits": True,
 })
 
-DATE_FORMAT_HEADER = 'EEEE, MMMM d, yyyy'
+CLIENT_LOCALE_FORMATS = {
+    "en": {  # defaults
+        "TIME_FORMAT": "HH:mm",
+        "DATE_FORMAT": "DD/MM/YYYY",
+        "COVERAGE_DATE_TIME_FORMAT": "HH:mm DD/MM",
+        "COVERAGE_DATE_FORMAT": "DD/MM",
+        "DATE_FORMAT_HEADER": "EEEE, MMMM d, yyyy",
+    },
+}

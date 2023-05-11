@@ -65,7 +65,18 @@
             </div>
         </div>
     </div>
-    {% include "login_messages.html" %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+        {% if messages %}
+            <div class="row" id="login-error-row">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} form-alert" role="alert">
+                    {{ gettext(message) }}
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
 
     <div class="mt-auto">
         {% include "footer_text.html" %}
@@ -122,6 +133,10 @@
 
         loginBlock.classList.add('d-flex');
         loginBlock.classList.add('flex-column');
+    }
+
+    if (document.getElementById('login-error-row') != null) {
+        showLoginForm();
     }
 </script>
 {% endblock %}

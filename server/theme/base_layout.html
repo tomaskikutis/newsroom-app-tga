@@ -23,22 +23,23 @@
 
 <div class="newsroomWrap">
     {% block topnav %}
-        <nav class="main navbar justify-content-start align-items-stretch flex-nowrap">
+        <nav class="main navbar">
+            <h3 class="a11y-only">{{ gettext('Main Navigation Bar') }}</h3>
             {% include 'logo.html' %}
-            <div class="navbar-brand d-flex align-items-center ml-0 ml-sm-1 ml-md-2 mr-0 mr-sm-4">
+            <div class="navbar-brand">
                 <nav>
                     {% block breadcrumb %}{% endblock %}
                 </nav>
             </div>
 
             {% if session.get('name') %}
-            <div class="form-inline my-lg-0 ml-auto flex-shrink-0 flex-grow-0">
-                <div class="mr-2 d-none d-md-block">{{ get_date() | date_header }}</div>
+            <div class="navbar__right">
+                <div class="navbar__date">{{ get_date() | date_header }}</div>
                 <div class="notif" id="header-notification"></div>
                 <div id="header-profile-toggle"></div>
             </div>
             {% else %}
-            <div class="form-inline my-lg-0 ml-auto pr-2 pr-sm-3">
+            <div class="navbar__right navbar__right--login">
                 <a class="nav-link d-none d-md-block" href="{{ url_for('register.eoi') }}">{{ gettext('Register') }}</a>
                 <a class="nav-link" href="https://360info.org/about-us/" target="_blank">{{ gettext('About Us') }}</a>
                 <a class="nav-link" href="https://360info.org/about-us/our-charter/" target="_blank">{{ gettext('Charter') }}</a>
@@ -50,16 +51,17 @@
         </nav>
     {% endblock %}
 
-    <div class="contentWrap flex-column flex-md-p-row flex-lg-l-row {% block custom_content_style %}{% endblock %}">
+    <div class="contentWrap flex-md-p-row flex-lg-l-row {% block custom_content_style %}{% endblock %}">
         {% if session.get('name') %}
         <nav class="sidenav">
+            <h3 class="a11y-only">{{ gettext('Side Navigation') }}</h3>
             <ul class="sidenav-icons">
 
                 {% block default_navs %}
                     {% for group in range(0, 10) %}
                         {% for nav in sidenavs(request.blueprint)|selectattr("group", "equalto", group) %}
                         {% if group > 0 and loop.first and loop.length %}
-                        <li class="sidenav-icons__item d-none d-sm-block"><span><i class="icon--more icon--rotate-90 icon--mid-blue"></i></span></li>
+                        <li class="sidenav-icons__item"><span aria-hidden="true"><i class="icon--more icon--rotate-90 icon--mid-blue"></i></span></li>
                         {% endif %}
 
                         {% include "sidenav_icon.html" %}
@@ -67,17 +69,52 @@
                     {% endfor %}
                 {%  endblock %}
 
+                {% if is_company_admin() %}
+                <li class="sidenav-icons__item sidenav-icons__item--admin {% if request.endpoint == 'company_admin.index' %}active{% endif %}">
+                    <a
+                        href="{{ url_for('company_admin.index') }}"
+                        title="{{ gettext('Company Admin') }}"
+                        aria-label="{{ gettext('Company Admin') }}"
+                        role="button"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-test-id="sidenav-link-company_admin"
+                    >
+                        <i class="icon--cog"></i>
+                        <div class="sidenav-icons__item-title">{{ gettext('Company Admin') }}</div>
+                    </a>
+                </li>
+                {% endif %}
+
                 {% if is_admin_or_account_manager() %}
-                <li class="sidenav-icons__item sidenav-icons__item--report d-none d-md-p-block d-lg-l-block {% if request.endpoint == 'reports.company_reports' %}active{% endif %}">
-                  <a href="{{ url_for('reports.company_reports') }}" title="{{ gettext('Reports') }}" data-toggle="tooltip" data-placement="right">
-                      <i class="icon--report icon--mid-blue"></i>
+                <li class="sidenav-icons__item sidenav-icons__item--report {% if request.endpoint == 'reports.company_reports' %}active{% endif %}">
+                  <a
+                      href="{{ url_for('reports.company_reports') }}"
+                      title="{{ gettext('Reports') }}"
+                      aria-label="{{ gettext('Reports') }}"
+                      role="button"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-test-id="sidenav-link-reports"
+                  >
+                      <i class="icon--report"></i>
+                      <div class="sidenav-icons__item-title">{{ gettext('Reports') }}</div>
                   </a>
                 </li>
                 {% endif %}
-                {% for app in settings_apps|sort(attribute='weight') %}{% if loop.first and is_admin()%}
-                <li class="sidenav-icons__item sidenav-icons__item--admin d-none d-md-p-block d-lg-l-block {% if request.blueprint == 'settings' %}active{% endif %}">
-                  <a href="{{ url_for('settings.app', app_id=app._id) }}" title="{{ gettext('Settings') }}" data-toggle="tooltip" data-placement="right">
-                      <i class="icon--cog icon--mid-blue"></i>
+                {% for app in settings_apps|sort(attribute='weight') %}{% if loop.first and is_admin() %}
+                <li class="sidenav-icons__item sidenav-icons__item--admin {% if request.blueprint == 'settings' %}active{% endif %}">
+                  <a
+                      href="{{ url_for('settings.app', app_id=app._id) }}"
+                      title="{{ gettext('Settings') }}"
+                      aria-label="{{ gettext('Settings') }}"
+                      role="button"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-test-id="sidenav-link-settings"
+                  >
+                      <i class="icon--cog"></i>
+                      <div class="sidenav-icons__item-title">{{ gettext('Settings') }}</div>
                   </a>
                 </li>
                 {% endif %}{% endfor %}
