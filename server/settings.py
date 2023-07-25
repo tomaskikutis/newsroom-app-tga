@@ -1,6 +1,11 @@
 import pathlib
-from newsroom.web.default_settings import BLUEPRINTS as DEFAULT_BLUEPRINTS, env, strtobool, CLIENT_CONFIG, \
-    CORE_APPS as DEFAULT_CORE_APPS
+from newsroom.web.default_settings import (
+    BLUEPRINTS as DEFAULT_BLUEPRINTS,
+    env,
+    strtobool,
+    CLIENT_CONFIG,
+    CORE_APPS as DEFAULT_CORE_APPS,
+)
 
 SERVER_PATH = pathlib.Path(__file__).resolve().parent
 CLIENT_PATH = SERVER_PATH.parent.joinpath("client")
@@ -16,18 +21,19 @@ TERMS_AND_CONDITIONS = "/page/terms"
 CORE_APPS = [
     app
     for app in DEFAULT_CORE_APPS
-    if app not in [
+    if app
+    not in [
         "newsroom.monitoring",
         "newsroom.auth.oauth",
         "newsroom.oauth_clients",
-
     ]
 ]
 
 BLUEPRINTS = ["tga.register"] + [
     blueprint
     for blueprint in DEFAULT_BLUEPRINTS
-    if blueprint not in [
+    if blueprint
+    not in [
         "newsroom.design",
         "newsroom.monitoring",
         "newsroom.oauth_clients",
@@ -41,10 +47,12 @@ NEWS_API_ENABLED = True
 WATERMARK_IMAGE = None
 
 # Client configuration
-CLIENT_CONFIG.update({
-    "display_abstract": True,
-    "display_credits": True,
-})
+CLIENT_CONFIG.update(
+    {
+        "display_abstract": True,
+        "display_credits": True,
+    }
+)
 
 CLIENT_LOCALE_FORMATS = {
     "en": {  # defaults
@@ -55,3 +63,30 @@ CLIENT_LOCALE_FORMATS = {
         "DATE_FORMAT_HEADER": "EEEE, MMMM d, yyyy",
     },
 }
+
+COMPANY_TYPES = [
+    dict(
+        id="news_media",
+        name="News Media",
+    ),
+    dict(
+        id="education",
+        name="Education",
+    ),
+    dict(
+        id="research",
+        name="Research",
+    ),
+    dict(
+        id="government_public_sector",
+        name="Government/Public Sector",
+    ),
+    dict(
+        id="ngo",
+        name="Non-Profit/NGO",
+    ),
+    dict(
+        id="other",
+        name="Other",
+    ),
+]
