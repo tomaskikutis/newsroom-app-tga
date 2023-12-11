@@ -15,6 +15,7 @@ COPYRIGHT_HOLDER = "360info"
 SHOW_USER_REGISTER = True
 SIGNUP_EMAIL_RECIPIENTS = "info@360info.org"
 HIDE_LOGIN = strtobool(env("HIDE_LOGIN", "True"))
+GOOGLE_LOGIN = False
 CONTACT_ADDRESS = "/contact_us"
 TERMS_AND_CONDITIONS = "/page/terms"
 
@@ -27,7 +28,7 @@ CORE_APPS = [
         "newsroom.auth.oauth",
         "newsroom.oauth_clients",
     ]
-]
+] + ["tga.register"]
 
 BLUEPRINTS = ["tga.register"] + [
     blueprint

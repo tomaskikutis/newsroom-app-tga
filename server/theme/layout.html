@@ -1,0 +1,20 @@
+{% extends "base_layout.html" %}
+
+{% block topnav_navbar %}
+{% if session.get('name') %}
+    <div class="navbar__right">
+        <div class="navbar__date">{{ get_date() | date_header }}</div>
+        <div class="navbar-notifications" id="header-notification"></div>
+        <div id="header-profile-toggle" data-test-id="header-avatar"></div>
+    </div>
+    {% else %}
+    <div class="navbar__right navbar__right--login">
+        <a class="nav-link d-none d-md-block" href="{{ url_for('auth.signup') }}">{{ gettext('Register') }}</a>
+        <a class="nav-link" href="https://360info.org/about-us/" target="_blank">{{ gettext('About Us') }}</a>
+        <a class="nav-link" href="https://360info.org/about-us/our-charter/" target="_blank">{{ gettext('Charter') }}</a>
+        <a class="nav-link d-none d-md-block" href="https://360info.org/about-us/editorial-policies/" target="_blank">{{ gettext('Editorial Policies') }}</a>
+        <a class="nav-link d-none d-md-block" href="https://360info.org/about-us/terms-conditions/" target="_blank">{{ gettext('Terms of Use') }}</a>
+        <a class="nav-link" href="https://360info.org/about-us/contact-us/" target="_blank">{{ gettext('Contact Us') }}</a>
+    </div>
+    {% endif %}
+{% endblock %}
