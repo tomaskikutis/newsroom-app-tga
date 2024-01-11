@@ -16,7 +16,7 @@ SHOW_USER_REGISTER = True
 SIGNUP_EMAIL_RECIPIENTS = "info@360info.org"
 HIDE_LOGIN = strtobool(env("HIDE_LOGIN", "True"))
 GOOGLE_LOGIN = False
-CONTACT_ADDRESS = "/contact_us"
+CONTACT_ADDRESS = "https://360info.org/about-us/contact-us/"
 TERMS_AND_CONDITIONS = "/page/terms"
 
 CORE_APPS = [

@@ -1,73 +1,9 @@
 {% extends "login_layout.html" %}
 
-{% block custom_container_style %}d-none pt-5{% endblock %}
+{% block custom_container_style %}d-flex flex-column pb-0{% endblock %}
 
 {% block login_page_footer %}
 <div class="mt-auto">
     {% include "footer_text.html" %}
 </div>
-{% endblock %}
-
-{% block contentMain %}
-{{ super() }}
-
-<div class="container-fluid pt-5 overflow-auto nh-login-page__content d-flex flex-column" id="registration-block">
-    <div class="row" style="margin-block-start: 20px">
-        <div class="col-12 col-md-8 col-lg-6 col-xxl-4 mx-auto">
-            <div class="card border-0 bg-white box-shadow--z1 rounded--m text-center">
-                <div class="card-header pt-4 border-0 bg-white rounded--m">
-                    <div class="login-logo">
-                        {% include 'login_logo.html' %}
-                    </div>
-                </div>
-                <div class="card-body pt-1">
-                    <p class="home-info-text font-weight-bold">
-                        <strong>Are you a journalist/media professional?</strong> You've come to the right place. Register below to request access to 360info's wire service (it's free).
-                    </p>
-
-                    <a href="{{ url_for('auth.signup') }}" role="button" class="btn btn-primary mx-auto text-white mt-3">
-                        Request access
-                    </a>
-                </div>
-                <div class="card-footer bg-white border-0 text-muted a--underline">
-                    <p class="text-center">
-                        Existing users, <a href="#" onclick="showLoginForm()" class="link">Sign in now</a>
-                    </p>
-                </div>
-                <div class="card-body pt-0">
-                    <p class="text-center">
-                        <strong>If you aren't a journalist, never fear.</strong>
-                        Head to our <a class="link" href="https://360info.org/content/">public website</a> - you'll
-                        see the same great content, 48 hours later. (p.s. don't forget to sign up for
-                        <a class="link" href="https://confirmsubscription.com/h/y/7AC8D1920A8ADB87">our newsletter</a>!)
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-auto">
-        {% include "footer_text.html" %}
-    </div>
-</div>
-
-<script>
-    function showLoginForm() {
-        let registrationBlock = document.getElementById('registration-block');
-        let loginContainer = document.getElementById('login-container');
-
-        registrationBlock.classList.remove('d-flex');
-        registrationBlock.classList.remove('flex-column');
-        registrationBlock.style.display = 'none';
-
-        loginContainer.classList.remove('d-none');
-        loginContainer.classList.remove('py-5');
-        loginContainer.classList.add('d-flex');
-        loginContainer.classList.add('flex-column');
-    }
-
-    if (document.querySelector('[data-test-id="error-row"]') != null) {
-        showLoginForm();
-    }
-</script>
 {% endblock %}
