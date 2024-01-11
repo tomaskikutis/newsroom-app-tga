@@ -91,3 +91,6 @@ COMPANY_TYPES = [
         name="Other",
     ),
 ]
+
+PUBLIC_DASHBOARD = True
+
