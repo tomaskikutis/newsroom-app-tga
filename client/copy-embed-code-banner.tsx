@@ -25,6 +25,7 @@ const {gettext} = exposed.locale;
 
 interface IProps {
     onCopy(): void;
+    license: string;
 }
 
 export function CopyEmbedCodeBanner(props: IProps) {
@@ -38,8 +39,7 @@ export function CopyEmbedCodeBanner(props: IProps) {
             </div>
 
             <p style={textStyle}>
-                {/** TODO: use license from metadata */}
-                {gettext('Copy this into your own story. Available under {{x}} license.', {x: 'xyz'})}
+                {gettext('Copy this into your own story. Available under {{x}} license.', {x: props.license})}
             </p>
 
             <Button
