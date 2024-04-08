@@ -93,4 +93,3 @@ COMPANY_TYPES = [
 ]
 
 PUBLIC_DASHBOARD = True
-
